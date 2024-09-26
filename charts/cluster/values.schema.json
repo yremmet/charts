@@ -303,11 +303,7 @@
                 "roles": {
                     "type": "array"
                 },
-<<<<<<< HEAD
                 "services": {
-=======
-                "serviceAccountTemplate": {
->>>>>>> b849139 (Adds serviceAccountTemplate to cluster configuration (#463))
                     "type": "object"
                 },
                 "storage": {

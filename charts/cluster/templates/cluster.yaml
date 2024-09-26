@@ -54,7 +54,11 @@ spec:
   {{ end }}
   enablePDB: {{ .Values.cluster.enablePDB }}
   postgresql:
+<<<<<<< HEAD
     {{- if or ( eq .Values.type "timescaledb" ) .Values.cluster.postgresql.shared_preload_libraries }}
+=======
+
+>>>>>>> 73131e3 (adding services settings to cluster template)
     shared_preload_libraries:
       {{- if eq .Values.type "timescaledb" }}
       - timescaledb
@@ -77,7 +81,10 @@ spec:
       {{- toYaml .parameters | nindent 6 }}
     {{ end }}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 73131e3 (adding services settings to cluster template)
   managed:  
     {{- with .Values.cluster.services }}
     services:
