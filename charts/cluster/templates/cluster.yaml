@@ -82,8 +82,10 @@ spec:
     {{- end}}
     parameters:
       {{- toYaml .parameters | nindent 6 }}
+    {{- if .ldap }}
     ldap: 
       {{- toYaml .ldap | nindent 6 }}
+    {{- end}}
     {{ end }}
 
 <<<<<<< HEAD
