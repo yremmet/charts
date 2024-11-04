@@ -187,6 +187,12 @@
                 "enableSuperuserAccess": {
                     "type": "boolean"
                 },
+                "env": {
+                    "type": "array"
+                },
+                "envFrom": {
+                    "type": "array"
+                },
                 "imageCatalogRef": {
                     "type": "object"
                 },
@@ -285,6 +291,9 @@
                 "priorityClassName": {
                     "type": "string"
                 },
+                "projectedVolumeSources": {
+                    "type": "array"
+                },
                 "resources": {
                     "type": "object"
                 },
@@ -323,6 +332,9 @@
                     }
                 }
             }
+        },
+        "configMaps": {
+            "type": "array"
         },
         "fullnameOverride": {
             "type": "string"

@@ -72,6 +72,7 @@ spec:
       {{- toYaml .parameters | nindent 6 }}
     {{ end }}
 
+
   managed:  
     {{- with .Values.cluster.services }}
     services:
@@ -110,3 +111,18 @@ spec:
     {{- end }}
   {{ include "cluster.bootstrap" . | nindent 2 }}
   {{ include "cluster.backup" . | nindent 2 }}
+
+
+  {{- if .Values.cluster.env}}
+  env: 
+  {{- toYaml .Values.cluster.env | nindent 4 }}
+  {{- end }}
+  {{- if .Values.cluster.envFrom}}
+  envFrom: 
+  {{- toYaml .Values.cluster.envFrom | nindent 4 }}
+  {{- end }}
+  {{- if .Values.cluster.projectedVolumeSources}}
+  projectedVolumeTemplate: 
+    sources:
+      {{- toYaml .Values.cluster.projectedVolumeSources | nindent 6 }}
+  {{- end }}

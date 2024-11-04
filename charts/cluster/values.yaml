@@ -255,6 +255,25 @@ cluster:
     #  - name: custom-queries-secret
     #    key: custom-queries
 
+  # Define environment variables to customize system behaviour
+  env: []
+  envFrom: []
+
+  projectedVolumeSources: []
+    #  - secret:
+    #       name: sample-secret
+    #       items:
+    #         - key: tls.crt
+    #           path: certificate/tls.crt
+    #         - key: tls.key
+    #           path: certificate/tls.key
+    #   - configMap:
+    #       name: sample-configmap
+    #       items:
+    #         - key: key1
+    #           path: config/key1
+    #         - key: key2
+    #           path: config/key2
   postgresql:
     # -- PostgreSQL configuration options (postgresql.conf)
     parameters: {}
@@ -411,3 +430,6 @@ pooler:
   # -- Custom PgBouncer deployment template.
   # Use to override image, specify resources, etc.
   template: {}
+
+  # -- Custom Config Maps to deploy with the helmchart
+  configMaps: []

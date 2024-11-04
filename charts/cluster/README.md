@@ -132,6 +132,8 @@ refer to  the [CloudNativePG Documentation](https://cloudnative-pg.io/documentat
 | backups.google.bucket | string | `""` |  |
 | backups.google.gkeEnvironment | bool | `false` |  |
 | backups.google.path | string | `"/"` |  |
+| configMaps | | list | `[]` | Configure additional copnfig maps|
+
 | backups.provider | string | `"s3"` | One of `s3`, `azure` or `google` |
 | backups.retentionPolicy | string | `"30d"` | Retention policy for backups |
 | backups.s3.accessKey | string | `""` |  |
@@ -153,6 +155,8 @@ refer to  the [CloudNativePG Documentation](https://cloudnative-pg.io/documentat
 | cluster.annotations | object | `{}` |  |
 | cluster.certificates | object | `{}` | The configuration for the CA and related certificates. See: https://cloudnative-pg.io/documentation/current/cloudnative-pg.v1/#postgresql-cnpg-io-v1-CertificatesConfiguration |
 | cluster.enableSuperuserAccess | bool | `true` | When this option is enabled, the operator will use the SuperuserSecret to update the postgres user password. If the secret is not present, the operator will automatically create one. When this option is disabled, the operator will ignore the SuperuserSecret content, delete it when automatically created, and then blank the password of the postgres user by setting it to NULL. |
+| cluster.env | list | `[]` | |
+| cluster.envFrom | list | `[]` | |
 | cluster.imageCatalogRef | object | `{}` | Reference to `ImageCatalog` of `ClusterImageCatalog`, if specified takes precedence over `cluster.imageName` |
 | cluster.imageName | string | `""` | Name of the container image, supporting both tags (<image>:<tag>) and digests for deterministic and repeatable deployments: <image>:<tag>@sha256:<digestValue> |
 | cluster.imagePullPolicy | string | `"IfNotPresent"` | Image pull policy. One of Always, Never or IfNotPresent. If not defined, it defaults to IfNotPresent. Cannot be updated. More info: https://kubernetes.io/docs/concepts/containers/images#updating-images |
@@ -179,6 +183,7 @@ refer to  the [CloudNativePG Documentation](https://cloudnative-pg.io/documentat
 | cluster.primaryUpdateMethod | string | `"switchover"` | Method to follow to upgrade the primary server during a rolling update procedure, after all replicas have been successfully updated. It can be switchover (default) or restart. |
 | cluster.primaryUpdateStrategy | string | `"unsupervised"` | Strategy to follow to upgrade the primary server during a rolling update procedure, after all replicas have been successfully updated: it can be automated (unsupervised - default) or manual (supervised) |
 | cluster.priorityClassName | string | `""` |  |
+| cluster.projectedVolumeSources| list | `[]` | Configure Projected Volumes from Secrets / ConfigMaps. See: https://cloudnative-pg.io/documentation/1.24/cluster_conf/#projected-volumes |
 | cluster.resources | object | `{}` | Resources requirements of every generated Pod. Please refer to https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ for more information. We strongly advise you use the same setting for limits and requests so that your cluster pods are given a Guaranteed QoS. See: https://kubernetes.io/docs/concepts/workloads/pods/pod-qos/ |
 | cluster.roles | list | `[]` | This feature enables declarative management of existing roles, as well as the creation of new roles if they are not already present in the database. See: https://cloudnative-pg.io/documentation/current/declarative_role_management/ |
 | cluster.services | object | `{}` | Customization of service definions. Please refer to https://cloudnative-pg.io/documentation/1.24/service_management/ |
@@ -188,6 +193,10 @@ refer to  the [CloudNativePG Documentation](https://cloudnative-pg.io/documentat
 | cluster.walStorage.enabled | bool | `false` |  |
 | cluster.walStorage.size | string | `"1Gi"` |  |
 | cluster.walStorage.storageClass | string | `""` |  |
+| cluster.env | list | `[]` | |
+| cluster.envFrom | list | `[]` | |
+  
+
 | fullnameOverride | string | `""` | Override the full name of the chart |
 | imageCatalog.create | bool | `true` | Whether to provision an image catalog. If imageCatalog.images is empty this option will be ignored. |
 | imageCatalog.images | list | `[]` | List of images to be provisioned in an image catalog. |
