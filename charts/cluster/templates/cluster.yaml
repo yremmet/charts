@@ -89,9 +89,13 @@ spec:
     {{ end }}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 73131e3 (adding services settings to cluster template)
+=======
+
+>>>>>>> 4477a3f (addings values for projectedVolumes and environment variables)
   managed:  
     {{- with .Values.cluster.services }}
     services:
