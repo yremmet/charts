@@ -1,5 +1,9 @@
 {{- if .Values.managed_roles }}
+<<<<<<< HEAD
 
+=======
+{{- range .Values..managed_roles }}
+>>>>>>> ed91746 (.)
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
