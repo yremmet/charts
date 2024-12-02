@@ -54,18 +54,9 @@ spec:
   {{ end }}
   enablePDB: {{ .Values.cluster.enablePDB }}
   postgresql:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    {{- if or ( eq .Values.type "timescaledb" ) .Values.cluster.postgresql.shared_preload_libraries }}
-=======
 
->>>>>>> 73131e3 (adding services settings to cluster template)
-=======
->>>>>>> 342daf9 (adds ldap configuration to cluster template)
-=======
     {{- if or ( eq .Values.type "timescaledb" ) .Values.cluster.postgresql.shared_preload_libraries }}
->>>>>>> ed91746 (.)
+
     shared_preload_libraries:
       {{- if eq .Values.type "timescaledb" }}
       - timescaledb
@@ -75,11 +66,6 @@ spec:
       {{- end }}
     {{- end }}
     {{- with .Values.cluster.postgresql }}
-<<<<<<< HEAD
-   
-=======
-    {{- end }}
->>>>>>> ed91746 (.)
     pg_hba:
       {{- toYaml .pg_hba | nindent 6 }}
     pg_ident:
@@ -96,14 +82,6 @@ spec:
     {{- end}}
     {{ end }}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 73131e3 (adding services settings to cluster template)
-=======
-
->>>>>>> 4477a3f (addings values for projectedVolumes and environment variables)
   managed:  
     {{- with .Values.cluster.services }}
     services:

@@ -1,9 +1,13 @@
 {{- if .Values.managed_roles }}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 {{- range .Values..managed_roles }}
 >>>>>>> ed91746 (.)
+=======
+
+>>>>>>> 3a24fd2 (fix removing shared libaries config if not needed)
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
