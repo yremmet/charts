@@ -1,0 +1,18 @@
+{{- if .Values.managed_roles }}
+{{- range .Values..managed_roles }}
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+spec:
+  managed:
+    roles:
+    - name: dante
+      ensure: present
+      comment: Dante Alighieri
+      login: true
+      superuser: false
+      inRoles:
+        - pg_monitor
+        - pg_signal_backend
+{{- end }}
+{{- end }}

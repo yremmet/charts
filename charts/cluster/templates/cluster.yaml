@@ -37,8 +37,9 @@ spec:
   affinity:
     {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- if .Values.cluster.priorityClassName }}
   priorityClassName: {{ .Values.cluster.priorityClassName }}
-
+  {{- end }}
   primaryUpdateMethod: {{ .Values.cluster.primaryUpdateMethod }}
   primaryUpdateStrategy: {{ .Values.cluster.primaryUpdateStrategy }}
   logLevel: {{ .Values.cluster.logLevel }}
@@ -52,6 +53,7 @@ spec:
     name: {{ . }}
   {{ end }}
   postgresql:
+    {{- if or ( eq .Values.type "timescaledb" ) .Values.cluster.postgresql.shared_preload_libraries }}
     shared_preload_libraries:
       {{- if eq .Values.type "timescaledb" }}
       - timescaledb
@@ -60,6 +62,7 @@ spec:
       {{- toYaml . | nindent 6 }}
       {{- end }}
     {{- with .Values.cluster.postgresql }}
+    {{- end }}
     pg_hba:
       {{- toYaml .pg_hba | nindent 6 }}
     pg_ident:
