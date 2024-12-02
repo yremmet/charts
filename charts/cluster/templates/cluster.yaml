@@ -61,8 +61,9 @@ spec:
       {{- with .Values.cluster.postgresql.shared_preload_libraries }}
       {{- toYaml . | nindent 6 }}
       {{- end }}
-    {{- with .Values.cluster.postgresql }}
     {{- end }}
+    {{- with .Values.cluster.postgresql }}
+   
     pg_hba:
       {{- toYaml .pg_hba | nindent 6 }}
     pg_ident:
